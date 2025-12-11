@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Semantic html</title>
+  </head>
+  <body>
+    <!-- 
+      semantic html elements describe their meaning, they make web page:
+         more readable
+         more accessible
+         better for seo
+         easier for react/next.js layout structure
+   -->
+
+    <!-- <header>: represents the top section of the page or a section
+         ex: logo, navigation, searchbar   
+   -->
+    <header>
+      <h1>My blog</h1>
+      <!-- nav is only for navigation links -->
+      <nav>
+        <a href="#">Download</a>
+        <a href="">Contact</a>
+      </nav>
+    </header>
+
+    <!-- <main>: the main content of the web page -->
+    <main>
+      <h2>all posts</h2>
+
+      <!-- <section>: a thematically grouped content block: use when: i want to group related content, block has heading -->
+      <section>
+        <h2>Latest articles</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem
+          sapiente hic maiores cum libero similique.
+        </p>
+      </section>
+
+      <!-- <article>: represents independent, self contained content such as blog post, news articles, product card, forum post -->
+      <article>
+        <h2>How HTML works</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum ex
+          velit cumque quod ratione dolores?
+        </p>
+      </article>
+
+      <!-- <aside>: content related but not essential to the main content, used for sidebars, ads, related links -->
+      <aside>
+        <h3>related posts</h3>
+      </aside>
+
+      <!-- <figure> and <figcaption>: for images, charts, diagrams -->
+      <figure>
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDF5wtCEUbrGqKvEMkKa-_7zBYSdhekBxiKQ&s"
+          alt="img"
+          width="200"
+          height="120"
+        />
+
+        <figcaption>thematic description</figcaption>
+      </figure>
+
+      <!-- <address>: contact info -->
+      <address>Contact: name@domain.com</address>
+
+      <!-- <time>: represents a date and time -->
+      <time datetime="2025-01-01">January 1, 2025</time>
+
+      <!-- others -->
+      <p>
+        this <mark>is very important</mark>
+        <br />
+        <cite>Machi</cite>
+      </p>
+    </main>
+    <!-- <footer>: bottom section of a page or section: contains- copyright, contact info, social links, related docs -->
+
+    <footer>@ 2025 rishb</footer>
+  </body>
+</html>
