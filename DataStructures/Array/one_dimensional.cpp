@@ -3,6 +3,19 @@ using namespace std;
 
 // not writing any theory, wrote enough theory on notebook
 
+// arrays in function
+void addTen(int* arr, int size){
+   for(int i  = 0; i < size; i++) *(arr+i) += 10;
+}
+
+// use of const array
+int sumOfNums(const int* arr, int size) {
+   int s = 0;
+   for(int i = 0; i < size; i++) {
+      s += *(arr+i);
+   }
+   return s;
+}
 
 int main() {
 
@@ -57,4 +70,19 @@ int main() {
 
    delete[] darr;
 
+   cout << endl;
+
+   // functions test
+   int fSize = 5;
+   int fArr[fSize] = {1,2,3,4,5};
+
+   addTen(fArr, fSize);
+
+   for(int i = 0; i < fSize; i++) {
+      cout << "index: " << i << " element: " << *(fArr + i) << '\n';
+   }
+
+   int fSum = sumOfNums(fArr, fSize);
+
+   cout << "sum of numbers using a function of array: " << fSum << endl;
 }
