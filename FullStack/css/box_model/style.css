@@ -1,0 +1,86 @@
+/* introductory theory is written on the notebook */
+
+* {
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+   
+}
+/* BOX MODEL
+
+   block: elements break into new line, takes the full width available, respect width, height, padding, margin, border fully.
+
+   inline: elements will not break into new line, width, height, top and bottom margins are ignored, left and right margins work, padding works visually only, border works. 
+
+      padding is breaking the layout and the elements do no shrink inside, instead the element size is changing
+
+
+   border: wraps padding and content inside
+   padding: space around the content
+   margin: space outside of the border, wraps border and padding
+
+   border box: the alternative box model which is preferred.
+      it is preferred because the default box-sizing is set to content-box, which raises mathematical problems in layout.
+      - it calculates the width from: padding+width+border, which causes issues in layout, also changing the padding changes the elements size.
+
+      box-model on other hand takes a fixed width, and the total width is the specified width. padding,border does shrink the content inside, not breaking the layout, margin is not included and still considered as external(similar to content box).
+*/
+.inline-text {
+   background-color: aqua;
+   border: 1px solid black;
+
+   /* set it to inline */
+   display: inline;
+
+   /* set the width of the box, since its */
+   width: 210px;
+
+   /* will only work visually, can confirm on browser tools */
+   padding: 20px;
+
+   /* these two will be ignored */
+   margin-top: 20px;
+   margin-bottom: 20px;
+
+   /* these margins work */
+   margin-left: 20px;
+   margin-right: 20px;
+}
+
+/* block element */
+.block-text {
+   background-color: burlywood;
+   border: 1px solid black;
+
+   /* default for <p> */
+   display: block;
+   width: 20vw;
+   /* height: 5vh; it trims the height from the bottom*/
+
+   /* takes left,right,top,bottom = 50px */
+   padding: 50px; 
+
+   /* push the element 10px down from the above element and push next element 155px down*/
+   margin-top: 10px;
+   margin-bottom: 155px;
+
+}
+/* inline-block
+
+   inline placement + block box model
+   - respects width,height,padding,margin
+   - does not start on a new line
+   - width is the width total, if not specified than its         calculated  from content's intrisic width.
+*/
+.inline-block-text {
+   background-color: brown;
+   border: 1px solid black;
+
+   display: inline-block;
+   height: 10vh;
+   width: 20vw;
+   padding: 225px;
+   margin: 25px;
+   vertical-align: top;
+}
+
