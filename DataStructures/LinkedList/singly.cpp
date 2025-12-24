@@ -28,6 +28,23 @@ struct Node {
    Node* next;
 };
 
+// singly linked list operations
+
+
+void traverseList(struct Node *temp) {
+   auto* ptr = temp; // if we directly use temp, it won't make any changes to the output, but we want temp to point at the head so, we use extra pointer memory
+   if(ptr == nullptr) {
+      return;
+   }
+
+   // go till the last element and print the values
+   while(ptr!=nullptr) {
+      cout << ptr->data << ' ';
+      ptr = ptr->next;
+   }
+
+   return;
+}
 
 int main() {
    // create a node and allocate it memory using `new`
@@ -35,8 +52,25 @@ int main() {
    list->data  = "node 1";
    list->next = nullptr;
 
-   delete list;
+   Node* item1 = new Node;
+   Node* item2 = new Node;
+   Node* item3 = new Node;
 
+   // set the values for item list
+   item1->data = "item1";
+   item1->next = item2;
+
+   item2->data = "item2";
+   item2->next = item3;
+
+   item3->data = "item3";
+   item3->next = nullptr;
+
+   traverseList(item1);
+   cout << endl;
+
+   delete list;
+   delete item1;
    return 0;
 
 }
