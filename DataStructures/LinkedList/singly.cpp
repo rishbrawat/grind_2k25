@@ -46,6 +46,16 @@ void traverseList(struct Node *temp) {
    return;
 }
 
+
+// insert at the beginning of the list (data, targetList)
+Node* insertAtBegin(string data, struct Node* temp) {
+   struct Node* ptr = new Node;
+   ptr->data = data;
+   ptr->next = temp;
+   return ptr;
+}
+
+
 int main() {
    // create a node and allocate it memory using `new`
    Node* list = new Node;
@@ -68,6 +78,10 @@ int main() {
 
    traverseList(item1);
    cout << endl;
+
+   item1 = insertAtBegin("item4", item1);
+   traverseList(item1);
+
 
    delete list;
    delete item1;
