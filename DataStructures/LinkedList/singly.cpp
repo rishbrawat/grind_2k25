@@ -56,6 +56,21 @@ Node* insertAtBegin(string data, struct Node* temp) {
 }
 
 
+// delete at the beginning of the list (targetList)
+Node* deleteAtBegin(struct Node* temp) {
+   // if list is empty, nothing to delete
+   if(temp == nullptr) {
+      return nullptr;
+   }
+
+   // keep reference to head, move head forward, free old head
+   struct Node* toDelete = temp;
+   temp = temp->next;
+   delete toDelete;
+   return temp;
+}
+
+
 // insert at the end of the list (data, targetList)
 Node* insertAtEnd(string data, struct Node* temp) {
    struct Node* ptr = new Node;
