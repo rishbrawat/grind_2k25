@@ -1,0 +1,16 @@
+# Compiled binaries
+*.exe
+*.out
+*.app
+
+# Object files (intermediate steps of compilation)
+*.o
+*.obj
+
+# Debug folders (if using Visual Studio)
+Debug/
+Release/
+ipch/
+*.sdf
+*.sln
+*.vcxproj
