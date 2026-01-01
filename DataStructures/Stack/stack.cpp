@@ -32,3 +32,21 @@
  * 
  * Space Complexity: O(n) where n is the number of elements
  */
+#include<iostream>
+using namespace std;
+
+struct Stack {
+   int* arr; 
+   int top; // top of the stack
+   int capacity; // capacity of the stack
+   
+   Stack(int size) {
+      arr = new int[size];
+      top = -1;
+      capacity = size;
+   }
+   
+   ~Stack() {
+      delete[] arr;
+   }
+};
