@@ -1,40 +1,93 @@
 /*
-   unordered_set: stores key and value in as keys, or elements are stored as keys themselves. they are mutable and elements can only be insertedd and deleted. all operations take constant time on avg and linear in worst case.
+   unordered_set: stores unqiue elements are allows for very fast lookup. conceptually it answers one core question efficiently:
+   `is this element present or not!`
+
+   the elements are not sorted or based on indices.
+   
+   core properties
+      if a value is entered twice, only one exists.
+      no indexing
+      unordered
+      hashbased structure
+
+
+   classic problems
+      check if seen before
+      rmeove duplicates
+      visited elements
+      unique values
 */
 
-#include<iostream>
 #include<unordered_set>
-
+#include<iostream>
+#include<vector>
 using namespace std;
 
+
 int main() {
-   unordered_set<int> s = {1,2,3,4};
+   
+
+   vector<int> v = {5,6,7,8,9};
+   // initialize from a container (range constructor)
+   unordered_set<int> vs(v.begin(), v.end()); // i will check it as it confuses me that both methods return an iterator
+   // copy constructor
+   unordered_set<int> cvs(vs);
+   for(auto& x: cvs) {
+      cout << x << ' ';
+   }
+   cout << endl;
+
+   // we cannot access elements using cvs[i]
+   // when size of set is known beforehand we should reserve the memory in advanced to avoid rehashing issues
+
+   unordered_set<int> s = {1,2,3,3,4}; // duplicates are auto removed
+   for(auto& x: s) {
+      cout << x << ' ';
+   }  cout << endl;
+   
+   // insert - insert an element, no overwrite, returns an iterator bool
    s.insert(5);
+   s.insert(10);
 
-   for(auto& p: s) {
-      cout << p << " ";
-   }
-   cout << endl;
-   s.erase(s.find(2));
-   for(auto& p: s) {
-      cout << p << " ";
+   // find() - memebership check, returns an iterator if element is present otherwise it points to the end()
+   if(s.find(5) != s.end()) {
+      cout << "5 exist on the set\n";
    }
 
-   // and all similar methods as other containers
-
-   int size = 5;
-   int arr[size] = {1,2,2,4,5};
-
-
-   // woosh we can remove similiar elements from the array and make an array of unique elements
-   unordered_set<int> s2;
-   for(int i = 0; i < size; i++) {
-      s2.insert(arr[i]);
-   }
-   cout << endl;
-   for(auto& p: s2) {
-      cout << p << " ";
+   // count- yes/no presence, useful for quick checks, returns 1 if present and 0 if not
+   if(s.count(11)) {
+      cout << "11 exists on the set\n";
    }
 
-   return 0;
+   // erase() - remove an element, safe even if some value does not exist
+   s.erase(10);
+
+   // erase by iterator
+   auto it = s.find(5);
+   if(it!=s.end()) {
+      s.erase(it);
+   }
+   // clear() - reset the set
+   s.clear();
+
+   // common short algos
+   // seen before check
+   for(auto& x: v) {
+      if(s.count(x)) {
+         // duplicate found
+         break;
+      }
+      s.insert(x);
+   }
+
+   // deleting from set
+   for(it = s.begin(); it!=s.end(); ) {
+      if(*it % 2 == 0) {
+         it = s.erase(it);
+      }
+      else 
+         ++it;
+   }
+
+   // const for each loop is readonly
 }
