@@ -126,3 +126,19 @@ console.log(nums);
 console.log(nums.sort());
 console.log(fruits.sort());
 console.log(mixed.sort());
+
+
+// map() : takes every element of the array and does something with each element and returns the new array, the original array is untouched
+let arr5 = [1,2,3];
+let arr6 = arr5.map(x => x*2);
+
+console.log(arr6);
+
+// filter(): returns a new array of filtered items from a condition
+arr6 = arr6.filter(x => x>2);
+console.log(arr6);
+
+// reduce(): turns an array into a value
+let cart = [10, 20, 30, 40];
+let cartSum = cart.reduce((tsum, price) => tsum+price, 0);
+console.log(cartSum);
